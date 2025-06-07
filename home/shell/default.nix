@@ -1,4 +1,7 @@
 { lib, ... }:
+let
+  hydroConfig = builtins.readFile ./fish-plugins/hydro.fish;
+in
 {
   imports = [
     ./common.nix
@@ -16,6 +19,7 @@
       set PATH $PATH ~/.local/scripts
 
       bind \cf tmux-sessionizer
+      ${hydroConfig}
     '';
 
     shellAliases = {
