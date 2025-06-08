@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ pkgs, lib, inputs, ... }:
 
 {
   imports = [
@@ -30,6 +30,7 @@
 
     # utils
     ripgrep
+    bat
     eza
     jq
     fzf
@@ -38,6 +39,7 @@
     #wl
     rofi
     wl-clipboard
+    grim
 
     # fish
     fishPlugins.hydro
@@ -59,4 +61,6 @@
   };
 
   home.stateVersion = "25.05";
+
+  programs.home-manager.enable = true;
 }
