@@ -4,16 +4,26 @@
       enable = true;
 
       servers = {
-        ts_ls.enable = true;
-
-	jdtls.enable = true;
+	ts_ls.enable = true;
 
 	nil_ls.enable = true;
 
-        lua_ls = {
-          enable = true;
-          settings.telemetry.enable = true;
-        };
+	jdtls = {
+	  enable = true;
+	  extraOptions = {
+	    init_options = {
+	      jvm_args = [
+		"-javaagent:/home/vgont/.local/share/nvim/mason/share/lombok-nightly/lombok.jar"
+		"-Xbootclasspath/a:/home/vgont/.local/share/nvim/mason/share/lombok-nightly/lombok.jar"
+	      ];
+	    };
+	  };
+	};
+
+	lua_ls = {
+	  enable = true;
+	  settings.telemetry.enable = true;
+	};
       };
 
       keymaps = {
