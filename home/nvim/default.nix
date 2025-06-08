@@ -17,6 +17,13 @@ in {
     {
       enable = true;
 
+      plugins = { 
+	treesitter = {
+	  enable = true;
+	  settings.indent.enable = true;
+	};
+      };
+
       colorschemes.${theme}.enable = true;
 
       globals.mapleader = " ";
@@ -28,6 +35,15 @@ in {
 	  shiftwidth = 2;
 	  clipboard = "unnamedplus";
       };
+
+      extraConfigLua = ''
+	vim.cmd [[
+	  highlight Normal guibg=none
+	  highlight NonText guibg=none
+	  highlight Normal ctermbg=none
+	  highlight NonText ctermbg=none
+	]]
+      '';
 
       keymaps = [
 	{
