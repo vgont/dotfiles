@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./docker.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
