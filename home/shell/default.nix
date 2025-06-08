@@ -6,6 +6,7 @@ in
   imports = [
     ./common.nix
     ./terminals.nix
+    ./languages
     ./tmux
   ];
 
