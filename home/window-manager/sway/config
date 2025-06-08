@@ -44,7 +44,7 @@ set $menu rofi -show run
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg ./walls/malenia-03.jpg fill
+output * bg ~/dotfiles/home/window-manager/wallpapers/wall-01.png fill
 
 #
 # Example configuration:
@@ -216,7 +216,7 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
-    bindsym Print exec sway-screenshot -m region --clipboard-only
+    bindsym Print exec "grim - | wl-copy"
 
 #
 # Status Bar:
