@@ -6,6 +6,10 @@
       servers = {
         ts_ls.enable = true;
 
+	jdtls.enable = true;
+
+	nil_ls.enable = true;
+
         lua_ls = {
           enable = true;
           settings.telemetry.enable = true;
