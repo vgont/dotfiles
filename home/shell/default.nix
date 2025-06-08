@@ -26,6 +26,8 @@ in
     shellAliases = {
       ls = "eza --icons";
       ll = "eza --icons -l";
+      cat = "bat";
+      cd = "z";
       tree = "eza --icons --tree";
       dd = "cd ~/dotfiles";
       ww = "cd ~/work";
