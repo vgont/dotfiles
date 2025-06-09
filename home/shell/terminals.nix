@@ -5,7 +5,7 @@
 
     settings = {
       theme = "GruvboxDark";
-      font-size = 22;
+      font-size = 18;
       background-opacity = 0.95;
       background-blur = true;
     };
