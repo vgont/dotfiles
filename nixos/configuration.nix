@@ -67,7 +67,7 @@
     shell = pkgs.fish;
     extraGroups = [ "wheel" "networkmanager" ];
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILjYXp+WwShICGfLxqQOMz084ifPZRUkx+Lm2VVwU9rb vgontdev@gmail.com"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAdeqgzW3tzUvAiqAR3zeP7xntu+S9XZwBbkbjy/DxrC vgontdev@gmail.com"
     ];
   };
 
