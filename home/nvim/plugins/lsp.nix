@@ -5,8 +5,11 @@
 
       servers = {
 	ts_ls.enable = true;
+	eslint.enable = true;
 
 	nil_ls.enable = true;
+
+	gopls.enable = true;
 
 	jdtls = {
 	  enable = true;
