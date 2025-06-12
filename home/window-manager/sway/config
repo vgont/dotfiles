@@ -10,7 +10,6 @@ exec $term
 
 workspace 2 
 exec brave --new-window
-for_window [title = "New Tab - Brave"] move container to workspace 2
 
 workspace 2
 
@@ -27,7 +26,7 @@ gaps outer 4
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
-set $mod Mod1
+set $mod Mod4
 
 # Home row direction keys, like vim
 set $left h
