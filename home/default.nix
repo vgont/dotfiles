@@ -3,7 +3,7 @@
 {
   imports = [
     inputs.nixvim.homeModules.nixvim
-    ./nvim
+    ./text-editors
     ./shell
     ./window-manager
   ];
@@ -22,6 +22,11 @@
 
   home.packages = with pkgs; [
     neofetch
+    macchina
+
+    # apps
+    bitwarden
+    brave
     vesktop
 
     # archives
@@ -34,16 +39,24 @@
     eza
     jq
     fzf
+    yazi
     zoxide
-
-    #wl
-    rofi
-    wl-clipboard
-    grim
-
-    # fish
-    fishPlugins.hydro
+    btop
   ];
+
+  text-editors.nixvim.enable = true;
+
+  window-manager = {
+    niri.enable = true;
+    waybar.enable = true;
+  };
+
+  shell = {
+    fish.enable = true;
+    tmux.enable = true;
+
+    terminals.ghostty.enable = true;
+  };
 
   programs.git = {
     enable = true;
@@ -51,16 +64,5 @@
     userEmail = "vgontdev@gmail.com";
   };
 
-  gtk = {
-    enable = true;
-    theme.name = "Adwaita-dark";
-  };
-
-  programs.brave = {
-    enable = true;
-  };
-
   home.stateVersion = "25.05";
-
-  programs.home-manager.enable = true;
 }

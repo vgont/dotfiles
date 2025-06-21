@@ -15,6 +15,9 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  stylix.enable = true;
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+
   networking.hostName = "nixos-btw";
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
@@ -60,7 +63,9 @@
   services.libinput.enable = true;
 
   programs.fish.enable = true;
-  programs.sway.enable = true;
+  programs.sway.enable = false;
+  programs.niri.enable = true;
+  programs.xwayland.enable = true;
 
   users.users.vgont = {
     isNormalUser = true;
@@ -75,7 +80,28 @@
     vim
     wget
     pavucontrol
+    swaybg
   ];
+
+  fonts = {
+    packages = with pkgs; [
+      nerd-fonts.lilex
+      nerd-fonts.code-new-roman
+      roboto-serif
+      font-awesome_5
+    ];
+    fontconfig = {
+      defaultFonts = {
+	monospace = [ "Lilex Nerd Font Mono" ];
+	sansSerif = [ "Lilex Nerd Font Mono" ];
+	serif = [ "Lilex Nerd Font Mono" ];
+      };
+    };
+  };
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
 
   programs.mtr.enable = true;
   programs.gnupg.agent = {

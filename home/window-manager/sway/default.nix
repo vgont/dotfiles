@@ -1,7 +1,11 @@
-{ lib, ... }:
+{ config, lib, ... }:
 {
-  wayland.windowManager.sway = {
-    enable = true;
+  options = {
+    sway.enable = lib.mkEnableOption "enables sway";
   };
-  xdg.configFile."sway/config".source = lib.mkForce ./config;
+
+  config = lib.mkIf config.sway.enable {
+    wayland.windowManager.sway.enable = true; 
+    xdg.configFile."sway/config".source = lib.mkForce ./config;
+  };
 }
