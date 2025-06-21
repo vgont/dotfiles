@@ -15,11 +15,6 @@
       url =  "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    stylix = {
-      url =  "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
@@ -31,7 +26,6 @@
 	modules = [
 	  ./hosts/maria/nixos/configuration.nix
 	  home-manager.nixosModules.home-manager
-	  inputs.stylix.nixosModules.stylix
 	  {
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
