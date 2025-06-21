@@ -2,7 +2,9 @@
   description = "My NixOS system";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixos-unstable";
+    };
 
     home-manager = {
       url =  "github:nix-community/home-manager";
@@ -13,25 +15,30 @@
       url =  "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix = {
+      url =  "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
     in {
-      nixosConfigurations."nixos-btw" = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./nixos/configuration.nix
+      nixosConfigurations."maria" = nixpkgs.lib.nixosSystem {
+	specialArgs = { inherit inputs; };
+	modules = [
+	  ./nixos/configuration.nix
 	  home-manager.nixosModules.home-manager
+	  inputs.stylix.nixosModules.stylix
 	  {
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
-	    home-manager.extraSpecialArgs = { inherit inputs; };
-	    home-manager.users.vgont = import ./home;
+	    home-manager.extraSpecialArgs = { inherit inputs; inherit system; };
+	    home-manager.users.vgont = import ./hosts/maria/home;
 	  }
-        ];
+	];
       };
     };
 }
