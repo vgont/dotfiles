@@ -14,8 +14,9 @@
 
 	operators = { };
 
-	animate = {
-	};
+	animate = { };
+
+	indentscope = { };
 
 	pairs = {
 	  disable_in_visualblock = true;

@@ -19,6 +19,7 @@ in {
   };
 
   config = lib.mkIf config.text-editors.nixvim.enable {
+    stylix.targets.nixvim.enable = false;
     programs.nixvim = lib.mkMerge [
       {
 	enable = true;
@@ -52,14 +53,14 @@ in {
 	'';
 
 	keymaps = [
-	  {
-	    action = "<C-u>zz";	
-	    key = "<C-u>";
-	  }	
-	  {
-	    action = "<C-d>zz";	
-	    key = "<C-d>";
-	  }	
+	  # {
+	  #   action = "<C-u>zz";	
+	  #   key = "<C-u>";
+	  # }	
+	  # {
+	  #   action = "<C-d>zz";	
+	  #   key = "<C-d>";
+	  # }	
 	  {
 	    action = ":bd<CR>";	
 	    key = "<leader>q";

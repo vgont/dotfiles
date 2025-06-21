@@ -1,8 +1,7 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
-    inputs.nixvim.homeModules.nixvim
     ../../../home
   ];
 
@@ -25,6 +24,7 @@
     # apps
     bitwarden
     brave
+    firefox
     vesktop
 
     # archives

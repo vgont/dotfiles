@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  wallpaper = "wall-02.png";
+  wallpaper = "wall-05.png";
 in
 {
   options = {
