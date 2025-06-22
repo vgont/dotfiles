@@ -23,6 +23,7 @@
 
     # apps
     bitwarden
+    brave
     firefox
     vesktop
 
@@ -60,8 +61,6 @@
     userName = "vgont";
     userEmail = "vgontdev@gmail.com";
   };
-
-  programs.brave.enable = true;
 
   home.stateVersion = "25.05";
 }

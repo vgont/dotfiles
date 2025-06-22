@@ -19,6 +19,7 @@ in {
   };
 
   config = lib.mkIf config.text-editors.nixvim.enable {
+    stylix.targets.nixvim.enable = false;
     programs.nixvim = lib.mkMerge [
       {
 	enable = true;
