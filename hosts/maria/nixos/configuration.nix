@@ -15,13 +15,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # stylix.enable = true;
-  # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/vesper.yaml";
+  stylix.enable = true;
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark.yaml";
 
-  stylix.opacity.terminal = 0.8;
-  stylix.opacity.desktop = 0.7;
+  stylix.opacity.terminal = 1.0;
+  # stylix.opacity.desktop = 0.7;
   stylix.opacity.applications = 0.9;
-  stylix.polarity = "dark";
 
   networking.hostName = "maria";
   networking.networkmanager.enable = true;
