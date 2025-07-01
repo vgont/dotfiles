@@ -7,6 +7,7 @@ in
     shell.fish.enable = lib.mkEnableOption "enables fish";
   };
   config = lib.mkIf config.shell.fish.enable {
+    stylix.targets.fish.enable = false;
     home.packages = with pkgs; [
       fishPlugins.hydro
     ];
@@ -37,6 +38,10 @@ in
 	snorf = "sudo nixos-rebuild switch --flake ~/dotfiles/";
 	ts = "tmux-sessionizer";
 	t = "tmux";
+      };
+
+      functions = {
+	sourcenv = builtins.readFile ./functions/sourcenv.fish;
       };
     };
   };
