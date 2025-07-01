@@ -9,7 +9,11 @@
 
 	nil_ls.enable = true;
 
+	terraformls.enable = true;
+
 	gopls.enable = true;
+
+	phpactor.enable = true;
 	
 	rust_analyzer = {
 	  enable = true;

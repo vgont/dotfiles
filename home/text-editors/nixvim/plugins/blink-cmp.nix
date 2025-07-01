@@ -18,6 +18,19 @@
 	  };
 	};
 
+	sources = {
+	  per_filetype = {
+	    sql = [ "dadbod" ];
+	    mysql = [ "dadbod" ];
+	  };
+
+	  providers = {
+	    dadbod = {
+	      module = "vim_dadbod_completion.blink";
+	    };
+	  };
+	};
+
 	appearance = {
 	  use_nvim_cmp_as_default = true;
 	  nerd_font_variant = "mono";

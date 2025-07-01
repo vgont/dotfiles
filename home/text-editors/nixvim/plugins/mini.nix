@@ -18,6 +18,18 @@
 
 	indentscope = { };
 
+	diff = { };
+
+	bracketed = { };
+
+	jump = { };
+
+	statusline = { };
+
+	pick = { };
+
+	splitjoin = { };
+
 	pairs = {
 	  disable_in_visualblock = true;
 	  disable_in_insert = true;
