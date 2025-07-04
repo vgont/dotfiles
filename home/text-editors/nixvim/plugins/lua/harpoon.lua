@@ -11,5 +11,11 @@ for i = 1, 9 do
   end, { desc = 'harpoon: select ' .. i })
 end
 
+local toggle_opts = {
+  border = "rounded",
+  title_pos = "center",
+  title = " Harpoon ",
+}
+
 vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list(), toggle_opts) end)
