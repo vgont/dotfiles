@@ -85,6 +85,8 @@
     wget
     pavucontrol
     swaybg
+    inetutils
+    lftp
   ];
 
   fonts = {
