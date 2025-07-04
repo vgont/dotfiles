@@ -20,6 +20,8 @@
 
 	diff = { };
 
+	git = { };
+
 	bracketed = { };
 
 	jump = { };
