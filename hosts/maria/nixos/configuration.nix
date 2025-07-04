@@ -19,7 +19,7 @@
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark.yaml";
 
   stylix.opacity.terminal = 1.0;
-  # stylix.opacity.desktop = 0.7;
+  stylix.opacity.desktop = 0.4;
   stylix.opacity.applications = 0.9;
 
   networking.hostName = "maria";
