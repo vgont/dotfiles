@@ -53,6 +53,33 @@
 
       };
     };
+
+    keymaps = [
+      {
+	action = ":Git commit<CR>";	
+	key = "<leader>gc";
+      }
+
+      {
+	action = ":Git status<CR>";	
+	key = "<leader>gs";
+      }	
+
+      {
+	action = "<cmd>Pick files<CR>";
+	key = "<leader>pf";
+      }
+      
+      {
+	action = "<cmd>Pick grep_live<CR>";
+	key = "<leader>pg";
+      }
+
+      {
+	action = "<cmd>Pick buffers<CR>";
+	key = "<leader>pb";
+      }
+    ];
   };
 }
 
