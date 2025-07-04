@@ -13,6 +13,23 @@ in
       swaylock
       xwayland-satellite
     ];
+
+    xdg.portal = {
+      enable = true;
+      config = {
+	common = {
+	  default = [ 
+	    "gtk" 
+	    "wlr" 
+	  ];
+	};
+      };
+      extraPortals = with pkgs; [
+	xdg-desktop-portal-gtk
+	xdg-desktop-portal-wlr
+      ];
+    };
+
     
     xdg.configFile."niri/config.kdl".text = ''
       ${builtins.readFile ./config.kdl}
