@@ -50,14 +50,16 @@ in {
 	extraConfigLua = builtins.readFile ./extraConfig.lua;
 
 	keymaps = [
-	  # {
-	  #   action = "<C-u>zz";	
-	  #   key = "<C-u>";
-	  # }	
-	  # {
-	  #   action = "<C-d>zz";	
-	  #   key = "<C-d>";
-	  # }	
+	  {
+	    action = "<C-u>zz";	
+	    key = "<C-u>";
+	  }	
+
+	  {
+	    action = "<C-d>zz";	
+	    key = "<C-d>";
+	  }	
+
 	  {
 	    action = ":bd<CR>";	
 	    key = "<leader>q";
