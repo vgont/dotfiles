@@ -14,8 +14,6 @@
 
 	operators = { };
 
-	animate = { };
-
 	indentscope = { };
 
 	diff = { };
