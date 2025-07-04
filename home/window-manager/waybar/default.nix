@@ -14,7 +14,7 @@
 
 	  reload_style_on_change = true;
 
-	  modules-left = [ "tray" "clock" "niri/language" ];
+	  modules-left = [ "tray" "clock" "niri/language" "backlight/slider"];
 	  modules-center = [ "niri/workspaces" ];
 	  modules-right = [ "group/expand" "network" "battery" ];
 
@@ -94,7 +94,7 @@
 	      "transition-to-left" = true;
 	      "click-to-reveal" = true;
 	    };
-	    modules = ["custom/expand"  "cpu" "memory" "temperature" "custom/endpoint"];
+	    modules = ["custom/expand" "backlight" "cpu" "memory" "temperature" "custom/endpoint"];
 	  };
 
 	  "cpu" = {
@@ -109,6 +109,18 @@
 	    format = "";
 	  };
 
+	  "backlight" = {
+	    device = "intel_backlight";
+	    format = "{percent}% {icon}";
+	    format-icons = ["" ""];
+	  };
+
+	  "backlight/slider" = {
+	    min = 0;
+	    max = 100;
+	    orientation = "horizontal";
+	    device = "intel_backlight";
+	  };
 	};
       };
     };
