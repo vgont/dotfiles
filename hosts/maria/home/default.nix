@@ -22,6 +22,7 @@
     macchina
 
     # apps
+    obsidian
     bitwarden
     brave
     firefox
@@ -32,6 +33,7 @@
     unzip
 
     # utils
+    wl-clipboard
     ripgrep
     bat
     eza
@@ -40,6 +42,8 @@
     yazi
     zoxide
     btop
+    gnumake
+    usbutils
   ];
 
   text-editors.nixvim.enable = true;
