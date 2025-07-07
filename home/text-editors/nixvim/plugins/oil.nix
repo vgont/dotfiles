@@ -1,10 +1,16 @@
 { ... }: {
   programs.nixvim = {
-    plugins.oil.enable = true;
+    plugins.oil = {
+      enable = true;
+      settings = {
+	view_options.show_hidden = true;
+      };
+    };
+
     keymaps = [
       {
-        action = "<cmd>Oil<cr>";
-        key = "<leader>d";
+	action = "<cmd>Oil<cr>";
+	key = "<leader>d";
       }
     ];
   };
