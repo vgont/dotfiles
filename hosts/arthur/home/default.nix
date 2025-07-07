@@ -27,6 +27,7 @@
     brave
     firefox
     vesktop
+    bruno
 
     # archives
     zip
