@@ -22,6 +22,10 @@
 	  installRustfmt = true;
 	};
 
+	omnisharp = {
+	  enable = true;
+	};
+
 	jdtls = {
 	  enable = true;
 	  extraOptions = {
