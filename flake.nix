@@ -40,5 +40,19 @@
 	  }
 	];
       };
+      nixosConfigurations."arthur" = nixpkgs.lib.nixosSystem {
+	specialArgs = { inherit inputs; };
+	modules = [
+	  ./hosts/arthur/nixos/configuration.nix
+	  home-manager.nixosModules.home-manager
+	  inputs.stylix.nixosModules.stylix
+	  {
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.useUserPackages = true;
+	    home-manager.extraSpecialArgs = { inherit inputs; inherit system; };
+	    home-manager.users.vgont = import ./hosts/arthur/home;
+	  }
+	];
+      };
     };
 }
