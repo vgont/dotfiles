@@ -28,6 +28,8 @@
     firefox
     vesktop
     bruno
+    anydesk
+    mongodb-compass
 
     # archives
     zip
