@@ -41,8 +41,8 @@
 	notify = {
 	  window.config = {
 	    border = "rounded";
-	    winblend = 0;
 	  };
+	  window.winblend = 0;
 	};
 
 	move = {
