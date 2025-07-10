@@ -1,4 +1,4 @@
-{ pkgs, toLuaFile, ... }: {
+{ ... }: {
   programs.nixvim = {
     plugins.mini = {
       enable = true;
@@ -7,8 +7,6 @@
 	ai = { };
 
 	icons = { };
-
-        notify = { };
 
 	surround = { };
 
@@ -26,14 +24,25 @@
 
 	statusline = { };
 
-	pick = { };
-
 	splitjoin = { };
 
 	pairs = {
 	  disable_in_visualblock = true;
 	  disable_in_insert = true;
 	  disable_in_replace = true;
+	};
+
+	pick = {
+	  window.config = {
+	    border = "rounded";
+	  };
+	};
+
+	notify = {
+	  window.config = {
+	    border = "rounded";
+	    winblend = 0;
+	  };
 	};
 
 	move = {
