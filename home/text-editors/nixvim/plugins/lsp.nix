@@ -49,6 +49,7 @@
 	  K = "hover";
 	  gD = "references";
 	  "<leader>ca" = "code_action";
+	  "<leader>f" = "format";
 	  gd = "definition";
 	  gi = "implementation";
 	  gt = "type_definition";  
