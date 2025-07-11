@@ -1,5 +1,8 @@
-{ config, lib, ... }:
 {
+  config,
+  lib,
+  ...
+}: {
   options = {
     shell.terminals.ghostty.enable = lib.mkEnableOption "enables ghostty";
   };
@@ -9,10 +12,10 @@
     programs.ghostty = {
       enable = true;
       settings = {
-	theme = "GruvboxDark";
-	font-size = 16;
-	background-opacity = 0.8;
-	background-blur = true;
+        theme = "GruvboxDark";
+        font-size = 16;
+        background-opacity = 0.8;
+        background-blur = true;
       };
     };
   };

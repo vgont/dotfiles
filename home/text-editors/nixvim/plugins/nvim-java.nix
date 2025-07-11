@@ -1,8 +1,8 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.nixvim = {
     extraPlugins = with pkgs.vimPlugins; [
       {
-	plugin = nvim-java;
+        plugin = nvim-java;
       }
     ];
   };

@@ -1,6 +1,8 @@
-{ pkgs, lib, ... }:
-
 {
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ../../../home
   ];
@@ -8,7 +10,7 @@
   home.username = "vgont";
   home.homeDirectory = "/home/vgont";
 
-  home.activation.createWorkDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  home.activation.createWorkDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
     if [ ! -d "$HOME/work" ]; then
       mkdir -p "$HOME/work"
     fi
@@ -68,4 +70,3 @@
 
   home.stateVersion = "25.05";
 }
-

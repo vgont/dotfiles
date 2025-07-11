@@ -1,17 +1,19 @@
-{ config, lib, pkgs, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./docker.nix
-    ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+    ./docker.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelModules = [ "uvcvideo" ];
+  boot.kernelModules = ["uvcvideo"];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -74,7 +76,7 @@
   users.users.vgont = {
     isNormalUser = true;
     shell = pkgs.fish;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = ["wheel" "networkmanager"];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAdeqgzW3tzUvAiqAR3zeP7xntu+S9XZwBbkbjy/DxrC vgontdev@gmail.com"
     ];
@@ -98,9 +100,9 @@
     ];
     fontconfig = {
       defaultFonts = {
-	monospace = [ "Lilex Nerd Font Mono" ];
-	sansSerif = [ "Lilex Nerd Font Mono" ];
-	serif = [ "Lilex Nerd Font Mono" ];
+        monospace = ["Lilex Nerd Font Mono"];
+        sansSerif = ["Lilex Nerd Font Mono"];
+        serif = ["Lilex Nerd Font Mono"];
       };
     };
   };
@@ -118,12 +120,10 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  networking.firewall.allowedTCPPorts = [ ];
-  networking.firewall.allowedUDPPorts = [ ];
-  
+  networking.firewall.allowedTCPPorts = [];
+  networking.firewall.allowedUDPPorts = [];
+
   # networking.firewall.enable = false;
 
   system.stateVersion = "25.05";
-
 }
-

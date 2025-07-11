@@ -1,19 +1,26 @@
-{ config, lib, pkgs, ... }:
 {
-
+  inputs,
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options = {
-    text-editors.nvim.enable = lib.mkenableoption "nvim";
+    text-editors.nvim.enable = lib.mkEnableOption "nvim";
   };
 
-  config = lib.mkif config.text-editors.nixvim.enable {
-    stylix.targets.nvim.enable = false;
+  config = lib.mkIf config.text-editors.nvim.enable {
+    stylix.targets.neovim.enable = false;
+
+    xdg.configFile."nvim".source = inputs.vgontnvim;
+
     programs.neovim = {
       enable = true;
       vimAlias = true;
+    };
 
-      plugins = with pkgs.vimPlugins; [
-        nvim-treesitter.withAllGrammars
-      ];
-    }
+    home.packages = with pkgs; [
+      gcc
+    ];
   };
 }

@@ -1,8 +1,11 @@
-{ config, lib, pkgs, ... }:
-let
-  hydroConfig = builtins.readFile ./fish-plugins/hydro.fish;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  hydroConfig = builtins.readFile ./fish-plugins/hydro.fish;
+in {
   options = {
     shell.fish.enable = lib.mkEnableOption "enables fish";
   };
@@ -15,33 +18,34 @@ in
     programs.fish = {
       enable = true;
       shellInit = ''
-      zoxide init fish | source
+        zoxide init fish | source
       '';
       interactiveShellInit = ''
-      set fish_greeting
-      set PATH $PATH ~/.local/scripts
+        set fish_greeting
+        set PATH $PATH ~/.local/scripts
 
-      bind \cq tmux-sessionizer
+        bind \cq tmux-sessionizer
 
-      ${hydroConfig}
+          ${hydroConfig}
       '';
 
       shellAliases = {
-	ls = "eza --icons";
-	ll = "eza --icons -l";
-	cat = "bat";
-	cd = "z";
-	tree = "eza --icons --tree";
-	dd = "cd ~/dotfiles";
-	ww = "cd ~/work";
-	pp = "cd ~/personal-projects/";
-	snorf = "sudo nixos-rebuild switch --flake ~/dotfiles/";
-	ts = "tmux-sessionizer";
-	t = "tmux";
+        ls = "eza --icons";
+        ll = "eza --icons -l";
+        cat = "bat";
+        cd = "z";
+        tree = "eza --icons --tree";
+        dd = "cd ~/dotfiles";
+        ww = "cd ~/work";
+        pp = "cd ~/personal-projects/";
+        snorf = "sudo nixos-rebuild switch --flake ~/dotfiles/";
+        ts = "tmux-sessionizer";
+        t = "tmux";
+        vgont = "ln -sf ~/dotfiles/home/text-editors/nvim/vgontnvim ~/.config/vgontnvim && NVIM_APPNAME=vgontnvim nvim";
       };
 
       functions = {
-	sourcenv = builtins.readFile ./functions/sourcenv.fish;
+        sourcenv = builtins.readFile ./functions/sourcenv.fish;
       };
     };
   };

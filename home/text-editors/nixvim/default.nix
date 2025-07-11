@@ -1,19 +1,25 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   theme = "gruvbox";
 
   toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
 
-  pluginFiles = builtins.filter (file: lib.hasSuffix ".nix" file)
+  pluginFiles =
+    builtins.filter (file: lib.hasSuffix ".nix" file)
     (builtins.attrNames (builtins.readDir ./plugins));
-  pluginModules = map (file: import (./plugins + "/${file}") {
-    inherit lib;
-    inherit toLuaFile;
-    inherit pkgs; 
-  }) pluginFiles;
+  pluginModules = map (file:
+    import (./plugins + "/${file}") {
+      inherit lib;
+      inherit toLuaFile;
+      inherit pkgs;
+    })
+  pluginFiles;
   mergedPlugins = lib.mkMerge (map (plugin: plugin.programs.nixvim) pluginModules);
 in {
-
   options = {
     text-editors.nixvim.enable = lib.mkEnableOption "nixvim";
   };
@@ -22,49 +28,59 @@ in {
     stylix.targets.nixvim.enable = false;
     programs.nixvim = lib.mkMerge [
       {
-	enable = true;
+        enable = true;
 
-	plugins = { 
-	  treesitter = {
-	    enable = true;
-	    settings.indent.enable = true;
-	  };
-	};
+        plugins = {
+          treesitter = {
+            enable = true;
+            settings.indent.enable = true;
 
-	colorschemes.${theme}.enable = true;
+            settings.incremental_selection = {
+              enable = true;
+              keymaps = {
+                init_selection = "<CR>";
+                node_incremental = "<CR>";
+                scope_incremental = false;
+                node_decremental = "<BS>";
+              };
+            };
+          };
+        };
 
-	globals.mapleader = " ";
-	globals.maplocalleader = " ";
+        colorschemes.${theme}.enable = true;
 
-	opts = {
-	  number = true;
-	  relativenumber = true;
-	  shiftwidth = 2;
-	  clipboard = "unnamedplus";
-	};
+        globals.mapleader = " ";
+        globals.maplocalleader = " ";
 
-	diagnostic.settings = {
-	  float = { border = "rounded"; };
-	};
+        opts = {
+          number = true;
+          relativenumber = true;
+          shiftwidth = 2;
+          clipboard = "unnamedplus";
+        };
 
-	extraConfigLua = builtins.readFile ./extraConfig.lua;
+        diagnostic.settings = {
+          float = {border = "rounded";};
+        };
 
-	keymaps = [
-	  {
-	    action = "<C-u>zz";	
-	    key = "<C-u>";
-	  }	
+        extraConfigLua = builtins.readFile ./extraConfig.lua;
 
-	  {
-	    action = "<C-d>zz";	
-	    key = "<C-d>";
-	  }	
+        keymaps = [
+          {
+            action = "<C-u>zz";
+            key = "<C-u>";
+          }
 
-	  {
-	    action = ":bd<CR>";	
-	    key = "<leader>q";
-	  }	
-	];
+          {
+            action = "<C-d>zz";
+            key = "<C-d>";
+          }
+
+          {
+            action = ":bd<CR>";
+            key = "<leader>q";
+          }
+        ];
       }
 
       mergedPlugins

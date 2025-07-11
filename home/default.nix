@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   imports = [
     ./text-editors
     ./shell

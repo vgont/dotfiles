@@ -5,7 +5,9 @@ vim.g.maplocalleader = " "
 vim.g.mapleader = " "
 
 for i = 1, 9 do
-  vim.keymap.set('n', '<leader>h' .. i, function()
+  local keys = {'w', 'f', 'p', 'r', 's', 't', 'x', 'c', 'd'}
+
+  vim.keymap.set('n', '<leader>h' .. keys[i], function()
     harpoon:list():select(i)
     print('harpoon: selected ' .. i)
   end, { desc = 'harpoon: select ' .. i })

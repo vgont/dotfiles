@@ -1,10 +1,13 @@
-{ pkgs, toLuaFile, ... }: {
+{
+  pkgs,
+  toLuaFile,
+  ...
+}: {
   programs.nixvim = {
     extraPlugins = with pkgs.vimPlugins; [
       {
-	plugin = vim-dotenv;
+        plugin = vim-dotenv;
       }
     ];
   };
-
 }

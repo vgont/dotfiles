@@ -1,4 +1,3 @@
-{ ... }:
-{
-  imports = [ ./clients.nix ];
+{...}: {
+  imports = [./clients.nix];
 }

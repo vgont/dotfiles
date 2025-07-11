@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   imports = [
     ./terminals
     ./languages
@@ -9,7 +8,7 @@
     ./common.nix
   ];
 
-  home.sessionVariables = { 
+  home.sessionVariables = {
     EDITOR = "nvim";
     BROWSER = "brave";
     TERMINAL = "ghostty";

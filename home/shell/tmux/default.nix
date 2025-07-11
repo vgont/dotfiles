@@ -1,5 +1,8 @@
-{ config, lib, ... }:
 {
+  config,
+  lib,
+  ...
+}: {
   options = {
     shell.tmux.enable = lib.mkEnableOption "enables tmux";
   };

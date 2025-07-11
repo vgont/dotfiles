@@ -1,6 +1,8 @@
-{ pkgs, lib, ... }:
-
 {
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ../../../home
   ];
@@ -8,7 +10,7 @@
   home.username = "vgont";
   home.homeDirectory = "/home/vgont";
 
-  home.activation.createWorkDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  home.activation.createWorkDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
     if [ ! -d "$HOME/work" ]; then
       mkdir -p "$HOME/work"
     fi
@@ -34,6 +36,8 @@
     # archives
     zip
     unzip
+    gzip
+    gnutar
 
     # utils
     wl-clipboard
@@ -49,7 +53,7 @@
     usbutils
   ];
 
-  text-editors.nixvim.enable = true;
+  text-editors.nvim.enable = true;
 
   window-manager = {
     niri.enable = true;
@@ -71,4 +75,3 @@
 
   home.stateVersion = "25.05";
 }
-

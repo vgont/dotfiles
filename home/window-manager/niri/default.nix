@@ -1,8 +1,11 @@
-{ config, lib, pkgs, ... }:
-let
-  wallpaper = "wall-05.png";
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  wallpaper = "wall-05.png";
+in {
   options = {
     window-manager.niri.enable = lib.mkEnableOption "enables niri";
   };
@@ -17,23 +20,22 @@ in
     xdg.portal = {
       enable = true;
       config = {
-	common = {
-	  default = [ 
-	    "gtk" 
-	    "wlr" 
-	  ];
-	};
+        common = {
+          default = [
+            "gtk"
+            "wlr"
+          ];
+        };
       };
       extraPortals = with pkgs; [
-	xdg-desktop-portal-gtk
-	xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-wlr
       ];
     };
 
-    
     xdg.configFile."niri/config.kdl".text = ''
       ${builtins.readFile ./config.kdl}
-      
+
       spawn-at-startup "swaybg" "-i" "${config.home.homeDirectory}/dotfiles/home/window-manager/wallpapers/${wallpaper}" "-m" "fill"
     '';
   };
