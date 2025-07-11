@@ -1,0 +1,3 @@
+[submodule "home/text-editors/nvim/vgontnvim"]
+	path = home/text-editors/nvim/vgontnvim
+	url = https://github.com/vgont/vgontnvim.git
