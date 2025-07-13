@@ -5,6 +5,7 @@
   ...
 }: let
   hydroConfig = builtins.readFile ./fish-plugins/hydro.fish;
+  aliases = import ../aliases.nix;
 in {
   options = {
     shell.fish.enable = lib.mkEnableOption "enables fish";
@@ -26,23 +27,10 @@ in {
 
         bind \cq tmux-sessionizer
 
-          ${hydroConfig}
+        ${hydroConfig}
       '';
 
-      shellAliases = {
-        ls = "eza --icons";
-        ll = "eza --icons -l";
-        cat = "bat";
-        cd = "z";
-        tree = "eza --icons --tree";
-        dd = "cd ~/dotfiles";
-        ww = "cd ~/work";
-        pp = "cd ~/personal-projects/";
-        snorf = "sudo nixos-rebuild switch --flake ~/dotfiles/";
-        ts = "tmux-sessionizer";
-        t = "tmux";
-        vgont = "ln -sf ~/dotfiles/home/text-editors/nvim/vgontnvim ~/.config/vgontnvim && NVIM_APPNAME=vgontnvim nvim";
-      };
+      shellAliases = aliases;
 
       functions = {
         sourcenv = builtins.readFile ./functions/sourcenv.fish;
