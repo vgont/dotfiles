@@ -1,4 +1,4 @@
-{}: {
+{
   ls = "eza --icons";
   ll = "eza --icons -l";
   cat = "bat";
